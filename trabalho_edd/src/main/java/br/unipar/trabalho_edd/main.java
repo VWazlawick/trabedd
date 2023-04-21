@@ -7,8 +7,9 @@ import javax.swing.JOptionPane;
 public class main {
 
     public static void main(String[] args) {
-        ArrayList<Integer> vetor = new ArrayList<>();
-        
+        int[]vetor = null;
+        String msg ="";
+                
         Ordenar o1 = new Ordenar();
         
         String input = JOptionPane.showInputDialog("Qual método de ordenação deseja visualizar: "
@@ -19,12 +20,15 @@ public class main {
         
         switch (input.toUpperCase()) {
             case "I":
+                vetor = o1.inserirVetor(vetor);
                 o1.ordenacaoInsercao(vetor);
                 break;
             case "S":
+                vetor = o1.inserirVetor(vetor);
                 o1.ordenacaoSelecao(vetor);
                 break;
             case "B":
+                vetor = o1.inserirVetor(vetor);
                 o1.ordenacaoBolha(vetor);
                 break;
             default:
@@ -32,8 +36,11 @@ public class main {
                 break;
         }
         
-        System.out.println(o1.toString());
+        for(int i=0; i<vetor.length;i++){
+            msg += vetor[i] + ",";
+        }
         
+        System.out.println("Primeira lista: {" + msg + "}" +"\nLista Ordenada: " + o1.toString());
         
     }
 }
